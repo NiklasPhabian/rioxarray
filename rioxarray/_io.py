@@ -82,8 +82,8 @@ class SingleBandDatasetReader:
         str: name of the dataset. Usually the path.
         """
         if isinstance(self._riods, rasterio.vrt.WarpedVRT):
-            return self._riods.src_dataset.name
-        return self._riods.name
+            return self._riods.src_dataset.name + str(self._bidx)
+        return self._riods.name + '-' + str(self._bidx)
 
     @property
     def count(self):
